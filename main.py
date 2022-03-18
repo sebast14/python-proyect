@@ -1,35 +1,89 @@
-message  =  "Espacio en memoria"
-número  =  12
-float_var  =  12.12
-nnumber1  =  12
-nnumber2  =  3
 
-nnumber1f  =  12,1
-nnumber2f  =  3,1
+numeros_celular = {"Camilo": 3154203143,
+                       "David": 3214567894,
+                       "Sebastian": 3145678431,
+                       "Juan": 3208184605}
+agenda = True
 
-imprimir ( mensaje )
-imprimir ( escribir ( mensaje ))
+while agenda:
+    print("\n------AGENDA------")
+    print("1) Mis contactos.")
+    print("2) Buscar contacto.")
+    print("3) Agregar nuevo contacto.")
+    print("4) Editar contacto.")
+    print("5) Eliminar contacto.")
+    print("6) Salir.")
 
-imprimir ( número )
-imprimir ( tipo ( número ))
+    option = ""
+    while option not in ("1", "2", "3", "4", "5", "6"):
+        option = input("\nDijite la opcion deseada \n-> ")
 
-imprimir ( float_var )
-imprimir ( tipo ( float_var ))
+    if option == "1":
+        print(numeros_celular)
 
-message1  =  "Suma de dos int" 
-imprimir ( mensaje1 )
+    if option == "2":
+        nombre = input("\nNombre: ")
+        if nombre not in numeros_celular:
+            print("Ese contacto no esta registrado.")
+            print("¿Desea hacerlo? Si es asi, pulse la opcion 3.")
+        else:
+            cel = numeros_celular[nombre]
+            print(nombre, ":", cel)
 
-print ( "Primer numero =" , nnumber1 )
-print ( "Segundo numero =" , nnumber2 )
-print ( "Resultado =" , nnumber1 + nnumber2 )
+    elif option == "3":
+        nombre = input("\nIngrese el nombre de su nuevo contacto: ")
+        if nombre in numeros_celular:
+            print("Ese contacto ya esta registrado.")
+        else:
+            cel = int(input("Ingrese el numero: "))
+            numeros_celular[nombre] = cel
+            print("El numero de celular fue agragado con exito.")
 
-message2  =  "Suma de dos float" 
-imprimir ( mensaje2 )
+    elif option == "4":
+        nombre = input("\nNombre del contacto que desea modificar: ")
+        if nombre not in numeros_celular:
+            print("Numero inexistente.")
+            print("¿Desea registrarlo? Si es asi, pulse la opcion 3.")
+        else:
+            cel = int(input("Dijite el nuevo numero: "))
+            numeros_celular[nombre] = cel
+            print("El numero ha sido modificado con exito.")
 
-print ( "Primer numero =" , nnumber1f )
-print ( "Segundo numero =" , nnumber2f )
-imprimir ( "Resultado =" , nnumber1f + nnumber2f )
+    elif option == "5":
+        nombre = input("Nombre: ")
+        if nombre not in numeros_celular:
+            print("Ese contacto no esta registrado")
+            print("¿Desea registrarlo? Si es asi, pulse la opcion 3.")
+        else:
+            del numeros_celular[nombre]
+            print("El numero ha sido eliminado. ")
 
-message3  =  "hola"
-message4  =  "mundo"
-imprimir ( mensaje3  +  mensaje4 )
+    elif option == "6":
+        agenda = exit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
